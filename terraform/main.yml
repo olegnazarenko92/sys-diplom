@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - name: nazarenkooo
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0JA1CjmXAAsQ8zzC4amdqCJJjVL9La2Yw1ZNgWLhJnNzpI03JdqwBpb3T6UlQACP3RO3m7VCodZvOl7VLCWJzEHM92z0thWmDfAvY/0+mXT2hUe4GwLhRMjgA6KPIWuxeIpcX5RAtMEW7nDX9j4KNohe7KWLuq8KbYSvv1c+l3vdv0VIL4KDVPXNZDcLVsX6/vfsCg3LrgJfBcOtIifvPf91tXCMwNn430wOleBkJdauFmqFh+bP75pnlQ3o90QgmWtkLDWSRVhBEBtcAytwdOIbLI0qShOTJ5LobHz29XwB+M28/Njrn9BfPLeR2jSdorCyk+uAyn9REUBDCXjYLASkFSEqtWdd9dAg3sVJCqqM+rWoPGfcnu64vSx6J49jKtxZPcM6R7vx4tyUVN6lmO1STeFKv19gpaeauglxOpzNibR0FrqemNFwHDIxCJFBPoPgkfK19Y4FG57nQBBS8lfh7Ayw8fnoKwPUpkcmMDl6+loNZi0hUWpax9ZN719c= mashkov@debian
+
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+apt:
+  preserve_sources_list: true
