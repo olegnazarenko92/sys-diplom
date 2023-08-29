@@ -4,5 +4,3 @@
   become_method: sudo
   roles:
     - nginx
-    - node_exporter
-    - nginx_logexporter
