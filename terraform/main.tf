@@ -22,7 +22,7 @@ resource "yandex_vpc_subnet" "subnet-1" {
   zone           = "ru-central1-a"
   network_id     = yandex_vpc_network.network-1.id
   route_table_id = yandex_vpc_route_table.rt.id
-  v4_cidr_blocks = ["192.168.10.0/24"]
+  v4_cidr_blocks = ["192.168.10.1/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-2" {
@@ -30,7 +30,7 @@ resource "yandex_vpc_subnet" "subnet-2" {
   zone           = "ru-central1-b"
   network_id     = yandex_vpc_network.network-1.id
   route_table_id = yandex_vpc_route_table.rt.id
-  v4_cidr_blocks = ["192.168.20.0/24"]
+  v4_cidr_blocks = ["192.168.11.1/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-3" {
@@ -38,7 +38,7 @@ resource "yandex_vpc_subnet" "subnet-3" {
   zone           = "ru-central1-c"
   network_id     = yandex_vpc_network.network-1.id
   route_table_id = yandex_vpc_route_table.rt.id
-  v4_cidr_blocks = ["192.168.30.0/24"]
+  v4_cidr_blocks = ["192.168.12.1/24"]
 }
 
 resource "yandex_vpc_gateway" "nat_gateway" {
@@ -171,12 +171,12 @@ resource "yandex_vpc_security_group" "security-ssh-traffic" {
   ingress {
     protocol       = "TCP"
     port           = 22
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 
   ingress {
     protocol       = "ICMP"
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 }
 
@@ -188,19 +188,19 @@ resource "yandex_vpc_security_group" "security-webservers" {
   ingress {
     protocol       = "TCP"
     port           = 80
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 
   ingress {
     protocol       = "TCP"
     port           = 4040
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 
   ingress {
     protocol       = "TCP"
     port           = 9100
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 
   egress {
@@ -217,7 +217,7 @@ resource "yandex_vpc_security_group" "security-zabbix" {
   ingress {
     protocol       = "TCP"
     port           = 9090
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 
   egress {
@@ -235,13 +235,13 @@ resource "yandex_vpc_security_group" "security-elasticsearch" {
   ingress {
     protocol       = "TCP"
     port           = 9200
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 
   egress {
     protocol       = "TCP"
     port           = 5601
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24", "192.168.30.0/24"]
+    v4_cidr_blocks = ["192.168.10.1/24", "192.168.11.1/24", "192.168.12.1/24"]
   }
 }
 
