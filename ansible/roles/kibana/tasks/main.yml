@@ -1,0 +1,16 @@
+---
+- name: Install the Docker module for Python
+  pip:
+    name: docker
+  notify: docker systemd
+
+- name: Create container
+  docker_container:
+    name: "Kibana"
+    image: "kibana:8.6.2"
+    ports:
+    - "5601:5601"
+    env:
+        ELASTICSEARCH_HOSTS='["http://{{ hostvars['elasticsearch-host'].ansible_host }}:9200"]'
+    state: started
+    restart_policy: always
