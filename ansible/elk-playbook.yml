@@ -1,0 +1,20 @@
+- hosts: elasticsearch
+  remote_user: nazarenkooo
+  become: yes
+  become_method: sudo
+  roles:
+    - elasticsearch
+
+- hosts: webservers
+  remote_user: nazarenkooo
+  become: yes
+  become_method: sudo
+  roles:
+    - filebeat
+
+- hosts: kibana
+  remote_user: nazarenkooo
+  become: yes
+  become_method: sudo
+  roles:
+    - kibana
