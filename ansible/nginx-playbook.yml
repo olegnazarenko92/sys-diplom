@@ -1,0 +1,8 @@
+- hosts: webservers
+  remote_user: nazarenkooo
+  become: yes
+  become_method: sudo
+  roles:
+    - nginx
+    - node_exporter
+    - nginx_logexporter
