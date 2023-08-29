@@ -1,0 +1,12 @@
+---  
+- name: restart zabbix   
+  service:
+    name: zabbix
+    state: restarted
+
+- name: zabbix systemd
+  systemd:
+    daemon_reload: yes
+    enabled: yes
+    state: started
+    name: zabbix
