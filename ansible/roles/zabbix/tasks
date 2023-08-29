@@ -1,0 +1,29 @@
+---  
+- name: install zabbix 6.2
+  apt:
+    name: zabbix 6.2
+    update_cache: yes
+    state: present
+
+- name: install zabbix agent 2
+  ansible.builtin.apt: 
+    name: zabbix-agent2
+    state: present
+    update_cache: yes
+        
+- name: deliver zabbix_agent2.conf from template folder
+  ansible.builtin.template:
+    src: zabbix_agent2.conf
+    dest: /etc/zabbix/zabbix_agent2.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: add zabbix-server name to /etc/hosts
+  ansible.builtin.linelife:
+    path: /etc/hosts
+    search_string: 'ag-zbx-01'
+    line: 192.168.10.2
+    owner: root
+    group: root
+    mode: '0644'
