@@ -1,0 +1,13 @@
+- hosts: zabbix
+  remote_user: nazarenkooo
+  become: yes
+  become_method: sudo
+  roles:
+    - zabbix
+
+- hosts: zabbix-agent-2
+  remote_user: nazarenkooo
+  become: yes
+  become_method: sudo
+  roles:
+    - zabbix-agent-2
