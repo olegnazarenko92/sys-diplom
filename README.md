@@ -75,3 +75,4 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 5. Воспользуйтесь Yandex Certificate Manager, выпустите сертификат для сайта, если есть доменное имя. Перенастройте работу балансера на HTTPS, при этом нацелен он будет на HTTP веб-серверов.
 
 ## Выполнение работы
+Файл с конфигурацией Terraform находится здесь: (https://github.com/olegnazarenko92/sys-diplom/blob/main/terraform/main.tf), также ansible playbooks и остальные конфигурационные файлы находятся в папках terraform и ansible соответственно.
