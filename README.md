@@ -66,3 +66,9 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ### Работа виртуальных машин
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/nginx1.png)
+
+### Zabbix
+### Kibana
+### ELK
+### Snapshots
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
