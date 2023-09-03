@@ -216,7 +216,7 @@ resource "yandex_vpc_security_group" "security-zabbix" {
 
   ingress {
     protocol       = "TCP"
-    port           = 9090
+    port           = 8080
     v4_cidr_blocks = ["192.168.0.0/24", "192.168.1.0.24", "192.168.11.0/24"]
   }
 
