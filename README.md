@@ -65,4 +65,4 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/balancer.png)
 
 ### Работа виртуальных машин
-![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/balancer.png)
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/nginx1.png)
