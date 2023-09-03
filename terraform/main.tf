@@ -114,7 +114,7 @@ resource "yandex_alb_virtual_host" "virtual-host" {
 
 # ALB
 resource "yandex_alb_load_balancer" "load-balancer" {
-  name        = "load-balancer"
+  name        = "balancer"
 
   network_id  = yandex_vpc_network.network-1.id
   security_group_ids = [yandex_vpc_security_group.security-public-alb.id]
@@ -150,7 +150,7 @@ resource "yandex_alb_load_balancer" "load-balancer" {
 
 # Security Bastion Host
 resource "yandex_vpc_security_group" "security-bastion-host" {
-  name        = "security-bastion-host"
+  name        = "bastion"
   network_id  = yandex_vpc_network.network-1.id
   ingress {
     protocol       = "TCP"
@@ -166,7 +166,7 @@ resource "yandex_vpc_security_group" "security-bastion-host" {
 
 # SSH Trafic
 resource "yandex_vpc_security_group" "security-ssh-traffic" {
-  name        = "security-ssh-traffic"
+  name        = "sstraffic"
   network_id  = yandex_vpc_network.network-1.id
   ingress {
     protocol       = "TCP"
@@ -182,7 +182,7 @@ resource "yandex_vpc_security_group" "security-ssh-traffic" {
 
 # Security Webservices
 resource "yandex_vpc_security_group" "security-webservers" {
-  name        = "security-webservers"
+  name        = "swebs"
   network_id  = yandex_vpc_network.network-1.id
 
   ingress {
@@ -211,7 +211,7 @@ resource "yandex_vpc_security_group" "security-webservers" {
 
 # Security Zabbix
 resource "yandex_vpc_security_group" "security-zabbix" {
-  name        = "security-zabbix"
+  name        = "szabx"
   network_id  = yandex_vpc_network.network-1.id
 
   ingress {
@@ -229,7 +229,7 @@ resource "yandex_vpc_security_group" "security-zabbix" {
 
 # Security ELK
 resource "yandex_vpc_security_group" "security-elasticsearch" {
-  name        = "security-elasticsearch"
+  name        = "selk"
   network_id  = yandex_vpc_network.network-1.id
 
   ingress {
@@ -247,7 +247,7 @@ resource "yandex_vpc_security_group" "security-elasticsearch" {
 
 # Security Kibana
 resource "yandex_vpc_security_group" "security-public-kibana" {
-  name        = "security-public-kibana"
+  name        = "spkib"
   network_id  = yandex_vpc_network.network-1.id
 
   ingress {
@@ -265,7 +265,7 @@ resource "yandex_vpc_security_group" "security-public-kibana" {
 
 # Security Balancer
 resource "yandex_vpc_security_group" "security-public-alb" {
-  name        = "security-public-alb"
+  name        = "spalb"
   network_id  = yandex_vpc_network.network-1.id
 
   ingress {
@@ -282,19 +282,19 @@ resource "yandex_vpc_security_group" "security-public-alb" {
 # Bastion Host
 resource "yandex_compute_instance" "bastion-host" {
 
-  name = "bastion-host"
+  name = "bastion"
   zone = "ru-central1-c"
 
   resources {
     cores = 2
     memory = 2
-    core_fraction = 20
+    core_fraction = 50
   }
 
   boot_disk {
     initialize_params {
       image_id = "${var.image_id_ya}"
-      size = 5
+      size = 10
     }
   }
 
