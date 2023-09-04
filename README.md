@@ -13,10 +13,10 @@
 
 ### Работа виртуальных машин
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/nginx1.png)
-
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/nginx2.png)
 ### Zabbix
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix.png)
-![Monitoring]([https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix1.png)
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix1.png)
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix2.png)
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix3.png)
 
