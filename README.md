@@ -1,7 +1,9 @@
 
 #  Дипломная работа по профессии «Системный администратор»
 
-Файл с конфигурацией Terraform находится здесь: (https://github.com/olegnazarenko92/sys-diplom/blob/main/terraform/main.tf), также ansible playbooks и остальные конфигурационные файлы находятся в папках terraform и ansible соответственно:
+Файл с конфигурацией Terraform находится здесь:
+#### (https://github.com/olegnazarenko92/sys-diplom/blob/main/terraform/main.tf) 
+Ansible playbooks и остальные конфигурационные файлы находятся в папках terraform и ansible соответственно:
 #### (https://github.com/olegnazarenko92/sys-diplom/tree/main/terraform)
 #### (https://github.com/olegnazarenko92/sys-diplom/tree/main/ansible)
 
