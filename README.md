@@ -25,7 +25,8 @@ Ansible playbooks и остальные конфигурационные фай�
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix2.png)
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/zabbix3.png)
 
-### Kibana
 ### ELK
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/elk.png)
+### Kibana
 ### Snapshots
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
