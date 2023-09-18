@@ -32,12 +32,6 @@ Ansible playbooks и остальные конфигурационные фай�
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
 
 # Работа над ошибками
-## Исправление замечания №1
-### Подключение к серверу:
-![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/elk.png)
-
-### Работа сервера:
-![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/Logs.png)
+## [Исправление замечания №1](https://github.com/olegnazarenko92/sys-diplom/blob/main/corrections/filebeat)
 ## [Исправление замечания №2](https://github.com/olegnazarenko92/sys-diplom/blob/main/corrections/snapshots)
-## Исправление замечания №3
-(https://github.com/olegnazarenko92/sys-diplom/blob/main/corrections/script)
+## [Исправление замечания №3](https://github.com/olegnazarenko92/sys-diplom/blob/main/corrections/script)
