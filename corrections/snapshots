@@ -23,4 +23,4 @@ resource "yandex_compute_snapshot_schedule" "default" {
               yandex_compute_instance.kibana.boot_disk[0].disk_id, 
 }
 '''
-[!Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
