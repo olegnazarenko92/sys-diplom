@@ -33,5 +33,37 @@ Ansible playbooks и остальные конфигурационные фай�
 
 # Работа над ошибками
 ## Исправление замечания №1
+### Подключение к серверу:
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/elk.png)
+
+### Работа сервера:
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/Logs.png)
 ## Исправление замечания №2
+## Описание стратегии
+#### Snapshot_count - максимальное количество хранимых снапшотов для каждого диска;
+#### Shedule_policy - расписание снапшотов (один раз в сутки)
+'''
+resource "yandex_compute_snapshot_schedule" "default" {
+  name = "default"
+
+  schedule_policy {
+    expression = "0 5 ? * *"
+  }
+
+  snapshot_count = 6
+
+  snapshot_spec {
+    description = "daily"
+  }
+
+  disk_ids = [yandex_compute_instance.nginx1.boot_disk[0].disk_id, 
+              yandex_compute_instance.nginx2.boot_disk[0].disk_id, 
+              yandex_compute_instance.zabbix.boot_disk[0].disk_id, 
+              yandex_compute_instance.bastion.boot_disk[0].disk_id, 
+              yandex_compute_instance.elk.boot_disk[0].disk_id, 
+              yandex_compute_instance.kibana.boot_disk[0].disk_id, 
+}
+'''
+![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
 ## Исправление замечания №3
+(https://github.com/olegnazarenko92/sys-diplom/blob/main/corrections/script)
