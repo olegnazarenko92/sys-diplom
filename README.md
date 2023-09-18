@@ -30,3 +30,5 @@ Ansible playbooks и остальные конфигурационные фай�
 
 ## Snapshots
 ![Monitoring](https://github.com/olegnazarenko92/sys-diplom/blob/main/screens/snapshots.png)
+
+### Работа над ошибками
