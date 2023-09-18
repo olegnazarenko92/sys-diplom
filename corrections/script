@@ -1,0 +1,152 @@
+### Отдельного скрипта по развертыванию не сделал, немного не разобрался с этим, есть общий план запуска terraform (выдержка из общего кода):
+'''
+# Nginx1
+resource "yandex_compute_instance" "web-server1" {
+
+  name = "nginx1"
+  zone = "ru-central1-a"
+
+  resources {
+    cores = 2
+    memory = 2
+    core_fraction = 50
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "${var.image_id_ya}"
+      size = 10
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-1.id
+    nat       = false
+    security_group_ids = [yandex_vpc_security_group.security-ssh-traffic.id, yandex_vpc_security_group.security-webservers.id]
+  }
+
+  metadata = {
+    user-data = "${file("./main.yaml")}"
+  }
+}
+
+# Nginx2
+resource "yandex_compute_instance" "web-server2" {
+
+  name = "nginx2"
+  zone = "ru-central1-b"
+
+  resources {
+    cores  = 2
+    memory = 2
+    core_fraction = 50
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "${var.image_id_ya}"
+      size = 10
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-2.id
+    nat       = false
+    security_group_ids = [yandex_vpc_security_group.security-ssh-traffic.id, yandex_vpc_security_group.security-webservers.id]
+  }
+
+  metadata = {
+    user-data = "${file("./main.yaml")}"
+  }
+}
+
+# Zabbix
+resource "yandex_compute_instance" "zabbix" {
+
+  name = "zabbix"
+  zone = "ru-central1-c"
+
+  resources {
+    cores  = 2
+    memory = 2
+    core_fraction = 100
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "${var.image_id_ya}"
+      size = 10
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-3.id
+    nat       = false
+    security_group_ids = [yandex_vpc_security_group.security-ssh-traffic.id, yandex_vpc_security_group.security-zabbix.id]
+  }
+
+  metadata = {
+    user-data = "${file("./main.yaml")}"
+  }
+}
+
+# ELK
+resource "yandex_compute_instance" "elasticsearch" {
+
+  name = "elk"
+  zone = "ru-central1-c"
+
+  resources {
+    cores  = 2
+    memory = 2
+    core_fraction = 50
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "${var.image_id_ya}"
+      size = 10
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-3.id
+    nat       = false
+    security_group_ids = [yandex_vpc_security_group.security-elasticsearch.id, yandex_vpc_security_group.security-ssh-traffic.id]
+  }
+
+  metadata = {
+    user-data = "${file("./main.yaml")}"
+  }
+}
+
+# Kibana
+resource "yandex_compute_instance" "kibana" {
+
+  name = "kibana"
+  zone = "ru-central1-c"
+
+  resources {
+    cores  = 2
+    memory = 2
+    core_fraction = 50
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "${var.image_id_ya}"
+      size = 10
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-3.id
+    nat       = true
+    security_group_ids = [yandex_vpc_security_group.security-public-kibana.id, yandex_vpc_security_group.security-ssh-traffic.id]
+  }
+
+  metadata = {
+    user-data = "${file("./main.yaml")}"
+  }
+}
+'''
